@@ -149,12 +149,12 @@ public class SampleApp {
 
 	
 	//These urls should be located in a configuration file or similar so that they can be changed without recompiling or redistributing the application.
-	private static String _primaryServiceEndpoint = "https://cws-01.cert.ipcommerce.com:443/2.0.17/SvcInfo";
-	private static String _secondaryServiceEndpoint = "https://cws-02.cert.ipcommerce.com:443/2.0.17/SvcInfo";
-	private static String _primaryTxnEndpoint = "https://cws-01.cert.ipcommerce.com:443/2.0.17/Txn";
-	private static String _secondaryTxnEndpoint = "https://cws-02.cert.ipcommerce.com:443/2.0.17/Txn";
-	private static String _primaryTMSEndpoint = "https://cws-01.cert.ipcommerce.com:443/2.0.17/DataServices/TMS";
-	private static String _secondaryTMSEndpoint = "https://cws-02.cert.ipcommerce.com:443/2.0.17/DataServices/TMS";
+	private static String _primaryServiceEndpoint = "https://api.cert.nabcommerce/2.0.18/SvcInfo";
+	private static String _secondaryServiceEndpoint = "https://api.cert.nabcommerce/2.0.18/SvcInfo";
+	private static String _primaryTxnEndpoint = "https://api.cert.nabcommerce/2.0.18/Txn";
+	private static String _secondaryTxnEndpoint = "https://api.cert.nabcommerce/2.0.18/Txn";
+	private static String _primaryTMSEndpoint = "https://api.cert.nabcommerce/2.0.18/DataServices/TMS";
+	private static String _secondaryTMSEndpoint = "https://api.cert.nabcommerce/2.0.18/DataServices/TMS";
 	// *** Please reference developers guide about protecting the Identity Token *** 
 	//https://mylab.ipcommerce.com/Docs/TransactionProcessing/CWS/Implementation_Guidelines/2.0.17/ServiceInformationGuidelines/AuthenticationProcess/index.aspx
 	public String _IdentityToken = "";
@@ -615,7 +615,7 @@ public class SampleApp {
 				}
 				
                 //If a modified account or routing number is returned, those numbers should be used for the check transaction.  
-                //Good for verifying the info before running the charge – like when you initially set-up a recurring payment.
+                //Good for verifying the info before running the charge ï¿½ like when you initially set-up a recurring payment.
 				ElectronicCheckingTransaction ECKtransaction = setElectronicCheckTxnData();
 				if(ECKtransaction.getTenderData().getCheckData().getAccountNumber() != ECTR.getModifiedAccountNumber())
 					ECKtransaction.getTenderData().getCheckData().setAccountNumber(ECTR.getModifiedAccountNumber());
@@ -990,7 +990,7 @@ public class SampleApp {
 	
 	public boolean ReturnById(ConfigurationValues _CV) {
 		/*
-		 * The ReturnById() operation is used to perform a linked credit to a cardholder’s account from the merchant’s 
+		 * The ReturnById() operation is used to perform a linked credit to a cardholderï¿½s account from the merchantï¿½s 
 		 * account based on a previously authorized and settled transaction.
 		 * https://mylab.ipcommerce.com/Docs/TransactionProcessing/CWS/SOAP_Developer_Guide/2.0.17/Implementation/TransactionProcessing/RefundingTransactions/ReturnById.aspx
 		*/ 
@@ -1050,8 +1050,8 @@ public class SampleApp {
 
 	public boolean ReturnUnlinked(ConfigurationValues _CV) {
 
-		/*The ReturnUnlinked() operation is used to perform an “unlinked”, or standalone, credit to a cardholder’s account 
-		 * from the merchant’s account. This operation is useful when a return transaction is not associated with a previously 
+		/*The ReturnUnlinked() operation is used to perform an ï¿½unlinkedï¿½, or standalone, credit to a cardholderï¿½s account 
+		 * from the merchantï¿½s account. This operation is useful when a return transaction is not associated with a previously 
 		 * authorized and settled transaction.
 		 * https://mylab.ipcommerce.com/Docs/TransactionProcessing/CWS/SOAP_Developer_Guide/2.0.17/Implementation/TransactionProcessing/RefundingTransactions/ReturnUnlinked.aspx
 		*/ 
@@ -1496,7 +1496,7 @@ public class SampleApp {
 		BankcardTenderData BCTen = new BankcardTenderData();
 		CardData CD = new CardData();
 		CD.setCardType(TypeCardType.MASTER_CARD);
-		CD.setExpire("1213"); // exactly 4 digits – MMYY where as a swipe will be YYMM
+		CD.setExpire("1213"); // exactly 4 digits ï¿½ MMYY where as a swipe will be YYMM
 		CD.setPAN("5454545454545454");
 		// CD.setTrack1Data("B5454545454545454^IPCOMMERCE/TESTCARD^1312101013490000000001000880000");
 		// CD.setTrack2Data("5454545454545454=13121010134988000010");
